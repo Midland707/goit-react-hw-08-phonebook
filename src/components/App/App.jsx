@@ -10,7 +10,7 @@ import { useSelector } from 'react-redux';
 import { selectContacts } from 'redux/selectors';
 import css from './App.module.css';
 
-export function App() {
+export function App({ children }) {
   const contacts = useSelector(selectContacts);
   const dispatch = useDispatch();
   const isLoading = useSelector(selectIsLoading);
@@ -21,20 +21,20 @@ export function App() {
   }, [dispatch]);
 
   return (
-    <div className={css.section}>
-      <h1 className={css.title}>Phonebook</h1>
-      <ContactForm />
-      {isLoading && !error ? (
-        <b>Request in progress...</b>
-      ) : contacts.length === 0 ? (
-        <div>Contacts list is empty ... </div>
-      ) : (
-        <>
-          <h2 className={css.title}>Contacts</h2>
-          <Filter />
-          <ContactList />
-        </>
-      )}
-    </div>
+      <div className={css.section}>
+        <h1 className={css.title}>Phonebook</h1>
+        <ContactForm />
+        {isLoading && !error ? (
+          <b>Request in progress...</b>
+        ) : contacts.length === 0 ? (
+          <div>Contacts list is empty ... </div>
+        ) : (
+          <>
+            <h2 className={css.title}>Contacts</h2>
+            <Filter />
+            <ContactList />
+          </>
+        )}
+      </div>
   );
 }
