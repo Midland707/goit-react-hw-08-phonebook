@@ -2,12 +2,15 @@ import { Suspense } from 'react';
 import { Outlet, NavLink } from 'react-router-dom';
 import { Progress } from '@chakra-ui/react';
 
-export const Navigation = () => {
+const Navigation = () => {
   return (
     <div>
       <ul>
         <li>
-          <NavLink to="register">Register</NavLink>
+          <NavLink to="/">Home</NavLink>
+        </li>
+        <li>
+          <NavLink to="/register">Register</NavLink>
         </li>
         <li>
           <NavLink to="/login">Login</NavLink>
@@ -29,3 +32,5 @@ export const Navigation = () => {
     </div>
   );
 };
+
+export default Navigation;
