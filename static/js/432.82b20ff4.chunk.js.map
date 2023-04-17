@@ -1,1 +1,0 @@
-{"version":3,"file":"static/js/432.82b20ff4.chunk.js","mappings":"iKAIA,UAJqB,WACnB,OAAOA,EAAAA,EAAAA,KAAAC,EAAAA,SAAA,CAAAC,SAAE,YACX,C","sources":["pages/RegisterPage.jsx"],"sourcesContent":["const RegisterPage = () => {\n  return <>Register</>;\n};\n\nexport default RegisterPage;\n"],"names":["_jsx","_Fragment","children"],"sourceRoot":""}
