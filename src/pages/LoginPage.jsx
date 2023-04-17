@@ -19,7 +19,10 @@ const LoginPage = () => {
         </label>
         <Button type="submit">Log In</Button>
       </form>
-      <NavLink to={`/register`}>Register</NavLink>
+
+      <NavLink to={`/register`}>
+        <Button>Register</Button>
+      </NavLink>
     </>
   );
 };
