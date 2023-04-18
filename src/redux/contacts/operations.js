@@ -3,6 +3,7 @@ import axios from 'axios';
 
 axios.defaults.baseURL = 'https://642c888e66a20ec9ce8a147d.mockapi.io/';
 // fetchContacts - одержання масиву контактів (метод GET) запитом. Базовий тип екшену "contacts/fetchAll".
+
 export const getContacts = createAsyncThunk(
   'contacts/fetchContacts',
   async (_, thunkAPI) => {
