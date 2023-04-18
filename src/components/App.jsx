@@ -1,7 +1,10 @@
-import { lazy } from 'react';
+import { lazy, useEffect } from 'react';
 import { Routes, Route } from 'react-router-dom';
-// import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { refreshUser } from 'redux/authorization/operations';
 // import { selectIsLoggedIn } from 'redux/authorization/selectors';
+import { selectIsRefreshing } from 'redux/authorization/selectors';
+import { Progress } from '@chakra-ui/react';
 
 const Navigation = lazy(() => import('./Navigation'));
 const HomePage = lazy(() => import('pages/HomePage'));
@@ -11,7 +14,19 @@ const ContactsPage = lazy(() => import('pages/ContactsPage'));
 
 export function App() {
   // const isLoggedIn = useSelector(selectIsLoggedIn);
-  return (
+  const dispatch = useDispatch();
+  const isRefreshing = useSelector(selectIsRefreshing);
+
+  useEffect(() => {
+    dispatch(refreshUser());
+  }, [dispatch]);
+
+  return isRefreshing ? (
+    <>
+      <Progress hasStripe value={64} />
+      <b>Refreshing user...</b>
+    </>
+  ) : (
     <div>
       <Routes>
         <Route path="/" element={<Navigation />}>

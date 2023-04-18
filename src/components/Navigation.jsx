@@ -13,6 +13,11 @@ const Navigation = () => {
       {isLoggedIn ? (
         <List display="flex" gap="50px" justifyContent="center">
           <ListItem>
+            <NavLink to="/">
+              <Button>Home</Button>
+            </NavLink>
+          </ListItem>
+          <ListItem>
             <NavLink to="/contacts">
               <Button>Contacts</Button>
             </NavLink>
@@ -21,6 +26,11 @@ const Navigation = () => {
         </List>
       ) : (
         <List display="flex" gap="50px" justifyContent="center">
+          <ListItem>
+            <NavLink to="/">
+              <Button>Home</Button>
+            </NavLink>
+          </ListItem>
           <ListItem>
             <NavLink to="/login">
               <Button>Login</Button>
