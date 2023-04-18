@@ -1,9 +1,22 @@
 import { Input, Button } from '@chakra-ui/react';
 import { NavLink } from 'react-router-dom';
 
+import { useDispatch } from 'react-redux';
+import { login } from 'redux/authorization/operations';
+
 export const LoginForm = () => {
+  const dispatch = useDispatch();
+
   const handleSubmit = e => {
     e.preventDefault();
+    const form = e.currentTarget;
+    dispatch(
+      login({
+        email: form.elements.email.value,
+        password: form.elements.password.value,
+      })
+    );
+    form.reset();
   };
   return (
     <>
