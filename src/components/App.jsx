@@ -5,6 +5,8 @@ import { refreshUser } from 'redux/authorization/operations';
 // import { selectIsLoggedIn } from 'redux/authorization/selectors';
 import { selectIsRefreshing } from 'redux/authorization/selectors';
 import { Progress } from '@chakra-ui/react';
+import { PrivateRoute } from './PrivateRoute';
+import { RestrictedRoute } from './RestrictedRoute';
 
 const Navigation = lazy(() => import('./Navigation'));
 const HomePage = lazy(() => import('pages/HomePage'));
@@ -35,9 +37,30 @@ export function App() {
             element={<HomePage />}
             // element={isLoggedIn ? <ContactsPage /> : <LoginPage />}
           />
-          <Route path="/register" element={<RegisterPage />} />
-          <Route path="/login" element={<LoginPage />} />
-          <Route path="/contacts" element={<ContactsPage />} />
+          <Route
+            path="/register"
+            element={
+              <RestrictedRoute
+                redirectTo="/contacts"
+                component={<RegisterPage />}
+              />
+            }
+          />
+          <Route
+            path="/login"
+            element={
+              <RestrictedRoute
+                redirectTo="/contacts"
+                component={<LoginPage />}
+              />
+            }
+          />
+          <Route
+            path="/contacts"
+            element={
+              <PrivateRoute redirectTo="/login" component={<ContactsPage />} />
+            }
+          />
           <Route
             path="*"
             element={<HomePage />}
