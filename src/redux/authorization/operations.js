@@ -14,9 +14,7 @@ const clearAuthHeader = () => {
 };
 
 // /users/signup - Greate a new user
-// {
-//   "name": "string", "email": "string", "password": "string",
-// }
+// { "name": "string", "email": "string", "password": "string" }
 export const register = createAsyncThunk(
   'authorization/register',
   async (user, thunkAPI) => {

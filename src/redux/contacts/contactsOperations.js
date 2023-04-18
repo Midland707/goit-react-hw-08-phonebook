@@ -1,11 +1,11 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 
-axios.defaults.baseURL = 'https://642c888e66a20ec9ce8a147d.mockapi.io/';
-// fetchContacts - одержання масиву контактів (метод GET) запитом. Базовий тип екшену "contacts/fetchAll".
+axios.defaults.baseURL = 'https://connections-api.herokuapp.com/';
 
+// getContacts - одержання масиву контактів (метод GET) запитом. Базовий тип екшену "contacts/fetchAll".
 export const getContacts = createAsyncThunk(
-  'contacts/fetchContacts',
+  'contacts/getContacts',
   async (_, thunkAPI) => {
     try {
       const response = await axios.get('/contacts');
@@ -15,7 +15,8 @@ export const getContacts = createAsyncThunk(
     }
   }
 );
-// addContact - додавання контакту (метод POST). Базовий тип екшену "contacts/addContact".
+// addContact - додавання контакту (метод POST).
+// { "name": "string", "number": "string",
 export const addContact = createAsyncThunk(
   'contacts/addContact',
   async (contact, thunkAPI) => {
@@ -27,7 +28,7 @@ export const addContact = createAsyncThunk(
     }
   }
 );
-// deleteContact - видалення контакту (метод DELETE). Базовий тип екшену "contacts/deleteContact".
+// deleteContact - видалення контакту (метод DELETE).
 export const deleteContact = createAsyncThunk(
   'contacts/deleteContact',
   async (contactId, thunkAPI) => {

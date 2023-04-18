@@ -1,8 +1,14 @@
+import { ListItem, Button } from '@chakra-ui/react';
+import { logOut } from 'redux/authorization/operations';
+
 export const UserMenu = () => {
+  const handleClick = () => {
+    logOut();
+  };
   return (
-    <div>
+    <ListItem>
       <p>mango@mail.com</p>
-      <button>Logout</button>
-    </div>
+      <Button onClick={handleClick}>Logout</Button>
+    </ListItem>
   );
 };

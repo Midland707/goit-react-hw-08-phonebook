@@ -1,26 +1,26 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { addContact } from 'redux/contacts/operations';
+import { addContact } from 'redux/contacts/contactsOperations';
 import { useSelector } from 'react-redux';
-import { selectContacts } from 'redux/contacts/selectors';
+import { selectContacts } from 'redux/contacts/contactsSelectors';
 import css from './ContactForm.module.css';
 import { Input, Button } from '@chakra-ui/react';
 
 export function ContactForm() {
   const [name, setName] = useState('');
-  const [phone, setPhone] = useState('');
+  const [number, setNumber] = useState('');
   const dispatch = useDispatch();
 
   const onChangeHandel = event => {
     const { name, value } = event.currentTarget;
     if (name === 'name') setName(value);
-    if (name === 'phone') setPhone(value);
+    if (name === 'number') setNumber(value);
   };
 
   const makeContact = () => {
     return {
       name: name,
-      phone: phone,
+      number: number,
     };
   };
 
@@ -53,7 +53,7 @@ export function ContactForm() {
         <Input
           // className={css.formInput}
           type="tel"
-          name="phone"
+          name="number"
           pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
           title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
           required
