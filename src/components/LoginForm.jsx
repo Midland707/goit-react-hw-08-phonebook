@@ -25,16 +25,14 @@ export const LoginForm = () => {
       <Formik
         initialValues={{ email: '', password: '' }}
         onSubmit={(values, actions) => {
-          setTimeout(() => {
-            dispatch(
-              logIn({
-                email: values.email,
-                password: values.password,
-              })
-            );
-            actions.setSubmitting(false);
-            actions.resetForm();
-          }, 1000);
+          dispatch(
+            logIn({
+              email: values.email,
+              password: values.password,
+            })
+          );
+          actions.setSubmitting(false);
+          actions.resetForm();
         }}
       >
         {props => (
