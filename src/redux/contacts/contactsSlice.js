@@ -48,7 +48,7 @@ const contactsSlice = createSlice({
     },
     [deleteContact.rejected]: contactsRejected,
     [logOut.fulfilled](state) {
-      state.contacts = [];
+      state.contactItems = [];
       state.error = null;
       state.isLoading = false;
     },

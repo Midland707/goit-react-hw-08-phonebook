@@ -1,10 +1,10 @@
-import { lazy, useEffect } from 'react';
+import { lazy, useEffect, Suspense } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { refreshUser } from 'redux/authorization/operations';
 // import { selectIsLoggedIn } from 'redux/authorization/selectors';
 import { selectIsRefreshing } from 'redux/authorization/selectors';
-// import { Progress } from '@chakra-ui/react';
+import { Progress } from '@chakra-ui/react';
 import { PrivateRoute } from './PrivateRoute';
 import { RestrictedRoute } from './RestrictedRoute';
 
@@ -29,40 +29,52 @@ export function App() {
       <b>Refreshing user...</b>
     </>
   ) : (
-    <Routes>
-      <Route path="/" element={<Navigation />}>
-        <Route
-          index
-          element={<HomePage />}
-          // element={isLoggedIn ? <ContactsPage /> : <LoginPage />}
-        />
-        <Route
-          path="/register"
-          element={
-            <RestrictedRoute
-              redirectTo="/contacts"
-              component={<RegisterPage />}
-            />
-          }
-        />
-        <Route
-          path="/login"
-          element={
-            <RestrictedRoute redirectTo="/contacts" component={<LoginPage />} />
-          }
-        />
-        <Route
-          path="/contacts"
-          element={
-            <PrivateRoute redirectTo="/login" component={<ContactsPage />} />
-          }
-        />
-        <Route
-          path="*"
-          element={<HomePage />}
-          // element={isLoggedIn ? <ContactsPage /> : <LoginPage />}
-        />
-      </Route>
-    </Routes>
+    <Suspense
+      fallback={
+        <div>
+          <Progress hasStripe value={64} />
+          Loading page...
+        </div>
+      }
+    >
+      <Routes>
+        <Route path="/" element={<Navigation />}>
+          <Route
+            index
+            element={<HomePage />}
+            // element={isLoggedIn ? <ContactsPage /> : <LoginPage />}
+          />
+          <Route
+            path="/login"
+            element={
+              <RestrictedRoute
+                redirectTo="/contacts"
+                component={<LoginPage />}
+              />
+            }
+          />
+          <Route
+            path="/register"
+            element={
+              <RestrictedRoute
+                redirectTo="/contacts"
+                component={<RegisterPage />}
+              />
+            }
+          />
+          <Route
+            path="/contacts"
+            element={
+              <PrivateRoute redirectTo="/login" component={<ContactsPage />} />
+            }
+          />
+          <Route
+            path="*"
+            element={<HomePage />}
+            // element={isLoggedIn ? <ContactsPage /> : <LoginPage />}
+          />
+        </Route>
+      </Routes>
+    </Suspense>
   );
 }
