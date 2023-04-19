@@ -1,5 +1,5 @@
 import { Suspense } from 'react';
-import { Box, List, ListItem, Button } from '@chakra-ui/react';
+import { Box, List, ListItem, Button, Text } from '@chakra-ui/react';
 import { Outlet, NavLink } from 'react-router-dom';
 import { Progress } from '@chakra-ui/react';
 import { useSelector } from 'react-redux';
@@ -9,17 +9,19 @@ import { UserMenu } from './UserMenu';
 const Navigation = () => {
   const isLoggedIn = useSelector(selectIsLoggedIn);
   return (
-    <Box>
+    <Box paddingTop="20px">
       {isLoggedIn ? (
         <List display="flex" gap="50px" justifyContent="center">
           <ListItem>
-            <NavLink to="/">
-              <Button>Home</Button>
-            </NavLink>
+            <Text color="red" fontSize="30px">
+              Phonebook
+            </Text>
           </ListItem>
           <ListItem>
             <NavLink to="/contacts">
-              <Button>Contacts</Button>
+              <Button colorScheme="red" variant="ghost">
+                Contacts
+              </Button>
             </NavLink>
           </ListItem>
           <UserMenu />
@@ -27,18 +29,22 @@ const Navigation = () => {
       ) : (
         <List display="flex" gap="50px" justifyContent="center">
           <ListItem>
-            <NavLink to="/">
-              <Button>Home</Button>
-            </NavLink>
+            <Text color="red" fontSize="35px">
+              Phonebook
+            </Text>
           </ListItem>
           <ListItem>
             <NavLink to="/login">
-              <Button>Login</Button>
+              <Button colorScheme="red" variant="ghost">
+                Login
+              </Button>
             </NavLink>
           </ListItem>
           <ListItem>
             <NavLink to="/register">
-              <Button>Register</Button>
+              <Button colorScheme="red" variant="ghost">
+                Register
+              </Button>
             </NavLink>
           </ListItem>
         </List>

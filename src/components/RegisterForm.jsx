@@ -1,5 +1,4 @@
-import { Input, Button } from '@chakra-ui/react';
-import { NavLink } from 'react-router-dom';
+import { Input, Button, Box } from '@chakra-ui/react';
 import { useDispatch } from 'react-redux';
 import { register } from 'redux/authorization/operations';
 
@@ -20,11 +19,12 @@ export const RegisterForm = () => {
   };
 
   return (
-    <>
+    <Box>
       <form onSubmit={handleSubmit} autoComplete="off">
         <label>
           Username
           <Input
+            placeholder=". . . username"
             type="text"
             name="name"
             pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
@@ -35,6 +35,7 @@ export const RegisterForm = () => {
         <label>
           Email
           <Input
+            placeholder=". . . email"
             type="email"
             name="email"
             pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
@@ -45,6 +46,7 @@ export const RegisterForm = () => {
         <label>
           Password
           <Input
+            placeholder=". . . password"
             type="password"
             name="password"
             pattern=".{6,}"
@@ -54,10 +56,6 @@ export const RegisterForm = () => {
         </label>
         <Button type="submit">Register</Button>
       </form>
-
-      <NavLink to={`/login`}>
-        <Button>Log In</Button>
-      </NavLink>
-    </>
+    </Box>
   );
 };
