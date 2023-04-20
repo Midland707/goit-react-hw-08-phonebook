@@ -10,8 +10,8 @@ export function ContactForm() {
   const contacts = useSelector(selectContacts);
 
   return (
-    <Box w="500px" mr="auto" ml="auto">
-      <Text color="white" fontSize="50px" textAlign="center">
+    <Box w="400px">
+      <Text color="white" fontSize="30px" textAlign="center">
         Add contact
       </Text>
       <Formik

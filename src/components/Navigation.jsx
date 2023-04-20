@@ -11,7 +11,13 @@ const Navigation = () => {
   return (
     <Box paddingTop="20px">
       {isLoggedIn ? (
-        <List display="flex" gap="50px" justifyContent="center">
+        <List
+          display="flex"
+          gap="50px"
+          justifyContent="center"
+          borderBottom="1px"
+          borderColor="#ececec"
+        >
           {/* <ListItem>
             <Text color="red" fontSize="30px">
               Phonebook
@@ -27,7 +33,13 @@ const Navigation = () => {
           <UserMenu />
         </List>
       ) : (
-        <List display="flex" gap="50px" justifyContent="center">
+        <List
+          display="flex"
+          gap="50px"
+          justifyContent="center"
+          borderBottom="1px"
+          borderColor="#ececec"
+        >
           <ListItem>
             <Text color="red" fontSize="35px">
               Phonebook

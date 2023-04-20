@@ -9,7 +9,6 @@ import { PrivateRoute } from './PrivateRoute';
 import { RestrictedRoute } from './RestrictedRoute';
 
 const Navigation = lazy(() => import('./Navigation'));
-// const HomePage = lazy(() => import('pages/HomePage'));
 const RegisterPage = lazy(() => import('pages/RegisterPage'));
 const LoginPage = lazy(() => import('pages/LoginPage'));
 const ContactsPage = lazy(() => import('pages/ContactsPage'));
@@ -37,7 +36,7 @@ export function App() {
         </div>
       }
     >
-      <Box w="1280px" h="720px" mr="auto" ml="auto" bg="#093545">
+      <Box w="1280px" minH="720px" mr="auto" ml="auto" bg="#093545">
         <Routes>
           <Route path="/" element={<Navigation />}>
             <Route

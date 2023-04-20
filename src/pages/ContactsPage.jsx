@@ -8,7 +8,7 @@ import { selectContacts } from 'redux/contacts/contactsSelectors';
 import { ContactForm } from 'components/ContactForm';
 import { Filter } from 'components/Filter';
 import { ContactList } from 'components/ContactList';
-import { Box, Text } from '@chakra-ui/react';
+import { Progress, Box, Text } from '@chakra-ui/react';
 
 const ContactsPage = () => {
   const contacts = useSelector(selectContacts);
@@ -22,26 +22,37 @@ const ContactsPage = () => {
 
   return (
     <Box
+      color="white"
       marginTop="20px"
       display="flex"
-      flexWrap="wrap"
-      alignContent="center"
-      flexDirection="column"
+      justifyContent="center"
       fontSize="20px"
+      mr="auto"
+      ml="auto"
     >
       <ContactForm />
       {isLoading && !error ? (
-        <b>Request in progress...</b>
-      ) : contacts.length === 0 ? (
-        <div>Contacts list is empty ... </div>
-      ) : (
         <>
+          <Progress hasStripe value={64} />
           <Text margin="0" marginBottom="15px">
+            Request in progress...
+          </Text>
+        </>
+      ) : contacts.length === 0 ? (
+        <Text>Contacts list is empty ... </Text>
+      ) : (
+        <Box>
+          <Text
+            margin="0"
+            marginBottom="15px"
+            fontSize="30px"
+            textAlign="center"
+          >
             Contacts
           </Text>
           <Filter />
           <ContactList />
-        </>
+        </Box>
       )}
     </Box>
   );
