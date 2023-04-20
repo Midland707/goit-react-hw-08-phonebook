@@ -23,7 +23,7 @@ const ContactsPage = () => {
 
   return (
     <div className={css.section}>
-      <h1 className={css.title}>Phonebook</h1>
+      {/* <h1 className={css.title}>Phonebook</h1> */}
       <ContactForm />
       {isLoading && !error ? (
         <b>Request in progress...</b>

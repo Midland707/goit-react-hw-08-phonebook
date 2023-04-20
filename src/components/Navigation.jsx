@@ -12,7 +12,7 @@ const Navigation = () => {
     <Box paddingTop="20px">
       {isLoggedIn ? (
         <List display="flex" gap="50px" justifyContent="center">
-          <ListItem>
+          {/* <ListItem>
             <Text color="red" fontSize="30px">
               Phonebook
             </Text>
@@ -23,7 +23,7 @@ const Navigation = () => {
                 Contacts
               </Button>
             </NavLink>
-          </ListItem>
+          </ListItem> */}
           <UserMenu />
         </List>
       ) : (
