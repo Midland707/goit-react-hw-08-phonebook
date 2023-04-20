@@ -37,6 +37,7 @@ const Navigation = () => {
           display="flex"
           gap="50px"
           justifyContent="center"
+          alignItems="center"
           borderBottom="1px"
           borderColor="#ececec"
         >
@@ -47,7 +48,7 @@ const Navigation = () => {
           </ListItem>
           <ListItem>
             <NavLink to="/login">
-              <Button colorScheme="red" variant="ghost">
+              <Button colorScheme="green" variant="ghost">
                 Login
               </Button>
             </NavLink>

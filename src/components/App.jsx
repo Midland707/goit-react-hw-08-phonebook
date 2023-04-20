@@ -36,7 +36,7 @@ export function App() {
         </div>
       }
     >
-      <Box w="1280px" minH="720px" mr="auto" ml="auto" bg="#093545">
+      <Box w="1200px" minH="600px" mr="auto" ml="auto" bg="#093545">
         <Routes>
           <Route path="/" element={<Navigation />}>
             <Route
