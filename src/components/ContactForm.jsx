@@ -2,14 +2,7 @@ import { useDispatch } from 'react-redux';
 import { addContact } from 'redux/contacts/contactsOperations';
 import { useSelector } from 'react-redux';
 import { selectContacts } from 'redux/contacts/contactsSelectors';
-import {
-  Input,
-  Button,
-  FormLabel,
-  FormControl,
-  Box,
-  Text,
-} from '@chakra-ui/react';
+import { Input, Button, FormLabel, Box, Text } from '@chakra-ui/react';
 import { Field, Form, Formik } from 'formik';
 
 export function ContactForm() {
@@ -44,38 +37,34 @@ export function ContactForm() {
             <Box color="white" w="300px" mr="auto" ml="auto">
               <Field name="name">
                 {({ field }) => (
-                  <FormControl>
-                    <FormLabel margin="0px" marginTop="20px">
-                      Name
-                      <Input
-                        {...field}
-                        placeholder=". . . name"
-                        type="text"
-                        name="name"
-                        pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
-                        title="Name may contain only letters, apostrophe, dash and spaces. For example Jacob Mercer..."
-                        required
-                      />
-                    </FormLabel>
-                  </FormControl>
+                  <FormLabel margin="0px" marginTop="20px">
+                    Name
+                    <Input
+                      {...field}
+                      placeholder=". . . name"
+                      type="text"
+                      name="name"
+                      pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
+                      title="Name may contain only letters, apostrophe, dash and spaces. For example Jacob Mercer..."
+                      required
+                    />
+                  </FormLabel>
                 )}
               </Field>
               <Field name="number">
                 {({ field }) => (
-                  <FormControl>
-                    <FormLabel margin="0px" marginTop="20px">
-                      Number phone
-                      <Input
-                        {...field}
-                        placeholder=". . . number phone"
-                        type="tel"
-                        name="number"
-                        pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
-                        title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
-                        required
-                      />
-                    </FormLabel>
-                  </FormControl>
+                  <FormLabel margin="0px" marginTop="20px">
+                    Number phone
+                    <Input
+                      {...field}
+                      placeholder=". . . number phone"
+                      type="tel"
+                      name="number"
+                      pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
+                      title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
+                      required
+                    />
+                  </FormLabel>
                 )}
               </Field>
               <Button

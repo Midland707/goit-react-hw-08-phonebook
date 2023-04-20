@@ -5,9 +5,9 @@ import { selectError, selectIsLoading } from 'redux/contacts/contactsSelectors';
 import { useSelector } from 'react-redux';
 import { selectContacts } from 'redux/contacts/contactsSelectors';
 
-import { ContactForm } from 'components/ContactForm/ContactForm';
-import { Filter } from 'components/Filter/Filter';
-import { ContactList } from 'components/ContactList/ContactList';
+import { ContactForm } from 'components/ContactForm';
+import { Filter } from 'components/Filter';
+import { ContactList } from 'components/ContactList';
 
 import css from './App.module.css';
 
