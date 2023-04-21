@@ -1,4 +1,5 @@
 import { useEffect } from 'react';
+import { Helmet } from 'react-helmet';
 import { useDispatch } from 'react-redux';
 import { getContacts } from 'redux/contacts/contactsOperations';
 import { selectError, selectIsLoading } from 'redux/contacts/contactsSelectors';
@@ -30,6 +31,9 @@ const ContactsPage = () => {
       mr="auto"
       ml="auto"
     >
+      <Helmet>
+        <title>Contacts</title>
+      </Helmet>
       <ContactForm />
       {isLoading && !error ? (
         <>
